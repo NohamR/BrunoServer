@@ -12,7 +12,7 @@ This Flask-based server implements the license activation and verification endpo
 Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/NohamR/BrunoServer.git && cd BrunoServer
-pip install flask
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -41,6 +41,19 @@ To use this license server with Bruno:
 2. In Bruno, configure the license server URL to point to your local server:
    - Default: `http://127.0.0.1:5000`
 3. Use any license key for activation and any otp for verification.
+
+#### Option 3: Run Your Own over Docker
+1. Create docker image:
+```bash
+docker build -t bruno-server .
+```
+2. Run docker image in container:
+```bash
+docker run -d --name bruno-server -p 5000:5000 bruno-server
+```
+3. Use the option 'License Server' from activation and enter `http://localhost:5000` as License Server URL
+4. Enter any text in License Key and Email.
+5. When prompted for OTP, enter any text. Bruno Ultimate will be activated.
 
 ## Legal Notice
 
