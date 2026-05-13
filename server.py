@@ -30,7 +30,7 @@ def _make_jwt_like(payload: dict) -> str:
     return f"{header_b64}.{payload_b64}.{signature_b64}"
 
 
-@app.route("/api/v1/license/activate", methods=["POST"])
+@app.route("/api/v2/license/activate", methods=["POST"])
 def activate_license():
     """Handle license activation request."""
     payload = request.get_json(silent=True) or {}
@@ -101,7 +101,7 @@ def verify_activation_otp(activation_id: str):
     }), 200
 
 
-@app.route("/api/v1/license/verify", methods=["POST"])
+@app.route("/api/v2/license/verify", methods=["POST"])
 def verify_license():
     """Verify license token."""
     payload = request.get_json(silent=True) or {}
